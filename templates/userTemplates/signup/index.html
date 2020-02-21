@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width ,  initial-scale=1.0" name="viewport">
+    <!-- CSS Libraries -->
+    <link href="{% static './css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static './css/fontawesome.all.min.css' %}" rel="stylesheet">
+
+    <link href="{% static './css/main.css' %}" rel="stylesheet">
+    <title>
+        PlayMusic
+    </title>
+</head>
+
+<body>
+
+	<section id="logo-main">
+		<div class="row text-center">
+			<div class="col-12 m-auto" style="border-bottom: 2px solid #e5e8e9;"><a href="#">
+				<p style="color: black; "><strong>PlayMusic</strong></p></a>
+			</div>
+		</div>
+
+
+			<div class="row">
+				<div class="col-4 m-auto text-center">
+                    <p style="color: black; padding: 20px;"><strong>Sign up with your email address</strong></p>
+                    
+			
+						{% if messages %}
+						{% for msg in messages %}
+						<div class="alert {% if msg.tags == 'error' %} alert-danger {% elif msg.tags == 'success' %} alert-success {% endif %}" role="alert" style="border-radius: 0;">
+							<b>{{ msg }}</b>
+							<br>
+						</div>
+						{% endfor %}
+						{% endif %}
+	                    
+
+					<form action="{% url 'user.signup'%}" method="post" id="signup-form">
+                        {% csrf_token %}
+                        
+							<div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="name" name="firstname" class="form-control" id="firstname" placeholder="First Name">
+	                            </div>
+                            </div>
+                            
+                            <div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="name" name="lastname" class="form-control" id="lastname" placeholder="Last Name">
+	                            </div>
+	                        </div>
+                            
+	                        <div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="name" name="username" class="form-control" id="username" placeholder="Username">
+	                            </div>
+                            </div>
+                            
+                            <div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+	                            </div>
+	                        </div>
+
+	                        <div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="password" name="password1" class="form-control" id="password1" placeholder="Password">
+	                            </div>
+                            </div>
+                            
+                            <div class="form-group">
+	                            <div class="form-input-bg">
+	                                <input type="password" name="password2" class="form-control" id="password2" placeholder="Confirm Password">
+	                            </div>
+	                        </div>
+
+				            <div class="guest-content" style="padding: 30px 0px;">
+				                <button type="submit" class="btn btn-success">Signup</button>
+				            </div>
+
+				            <div>
+				            	<p style="color: black;">Already have an account ? <a href="{% url 'user.login' %}"><span style="color: green;">Log In</span></a></p>
+				            </div>
+
+	                </form>
+				</div>
+		</div>
+	</section>
+
+
+
+    <script src="{% static './js/jquery.min.js' %}"></script>
+
+    <script src="{% static './js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static './js/jquery-ui.min.js' %}"></script>
+
+    <script src="{% static './js/main.js' %}"></script>
+</body>
+
+</html>

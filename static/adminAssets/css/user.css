@@ -1,0 +1,12 @@
+.table-mar{
+    margin: 50px
+}
+
+.hide-gif{
+    display: none;
+}
+
+
+.show-gif{
+    display: inline;
+}

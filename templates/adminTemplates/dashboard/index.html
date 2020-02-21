@@ -1,0 +1,74 @@
+{% extends "adminTemplates/layouts/layout-dashboard.html" %}
+{% block title %} Admin Dashboard | Home {% endblock %}
+{% block main-section %}
+
+{% if messages %}
+<div class="alert alert-success" role="alert">
+{% for msg in messages %}
+    <b>{{ msg }}</b>
+    <br>
+{% endfor %}
+</div>
+{% endif %}
+{% load static %}
+<div class="container">
+<div class="row">
+<div class="col-12 text-center">
+    <div class="main-section">
+        <h2 class="content-heading">Dashboard</h2>
+    
+        <div class="row">
+                
+            <div class="col-4 text-center">
+
+                <a href="{% url 'admin.song.index' %}">
+
+                    <div class="card" style="width: 18rem;">
+                      <img src="/media/images/music.jpg" class="card-img-top" alt="Song List">
+                      <div class="card-body">
+                        <p class="card-text">Manage songs directly from here!</p>
+                      </div>
+                    </div>
+
+                </a>
+
+            </div>
+            <div class="col-4 text-center">
+
+                <a href="{% url 'admin.artist.index' %}">
+
+                    <div class="card" style="width: 18rem;">
+                      <img src="/media/images/artist.jpg" class="card-img-top" alt="Artist List">
+                      <div class="card-body">
+                        <p class="card-text">Manage Artist directly from here!</p>
+                      </div>
+                    </div>
+
+                </a>
+
+            </div>
+            <div class="col-4 text-center">
+
+                <a href="#">
+
+                    <div class="card" style="width: 18rem;">
+                      <img src="/media/images/user.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">Manage Users directly from here!</p>
+                      </div>
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+        
+
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
