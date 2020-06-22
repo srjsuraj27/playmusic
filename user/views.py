@@ -94,4 +94,4 @@ def index(request):
 @login_required(login_url = 'user.login')
 def logout(request):
     auth.logout(request)
-    return redirect('user.register')
+    return redirect('user.login')
